@@ -1,0 +1,1 @@
+gource -s 5 -1280x720 --auto-skip-seconds .1 --multi-sampling --stop-at-end --font-size 22 --title "$1" --output-ppm-stream -  --output-framerate 30 | ffmpeg -y -r 30 -f image2pipe -vcodec ppm -i - -b 65536K movie.mp4 && ffmpeg -i movie.mp4 -b:v 3048780 -vcodec libx264 -crf 24 output.mp4
