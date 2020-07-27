@@ -1,3 +1,4 @@
+# Run with `python xml-to-json.py input.xml output.json`
 import sys
 import json
 from xmljson import parker
