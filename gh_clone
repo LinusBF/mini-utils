@@ -7,6 +7,9 @@ to clone the repo with the remote url "git@me.github.com:UserName/your_repo.git"
 If another prefix is wanted, supply the -p flag like so:
 `gh_clone -p "client_name." git@github.com:UserName/your_repo.git`
 will result in the remote url "git@client_name.github.com:UserName/your_repo.git"
+
+Check the file multiple_ssh_identities_config for an example of what to have in your .ssh/config file
+to make this work
 ###
 
 if [ -n "$1" ]; then

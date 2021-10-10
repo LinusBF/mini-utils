@@ -1,0 +1,12 @@
+Host github.com
+    HostName github.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa.pub
+    IdentitiesOnly yes
+
+Host other.github.com
+    HostName github.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/other_id_rsa.pub
+    IdentitiesOnly yes
+
