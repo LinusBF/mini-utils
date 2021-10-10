@@ -1,0 +1,33 @@
+#!/bin/bash
+set -e
+<<'###'
+Script to help you clone repos with a host prefix to make having multiple ssh IDs easier
+Run `gh_clone git@github.com:UserName/your_repo.git`
+to clone the repo with the remote url "git@me.github.com:UserName/your_repo.git"
+If another prefix is wanted, supply the -p flag like so:
+`gh_clone -p "client_name." git@github.com:UserName/your_repo.git`
+will result in the remote url "git@client_name.github.com:UserName/your_repo.git"
+###
+
+if [ -n "$1" ]; then
+    while getopts "p:" arg; do
+    case $arg in
+        p)
+        prefix=$OPTARG
+        ;;
+    esac
+    done
+
+    default="me."
+    replace_with=${prefix:-$default}
+
+    for shh_link; do true; done
+
+    replace_with_host="${replace_with}github.com"
+
+    replaced=$(echo $shh_link | sed "s/github.com/$replace_with_host/g")
+    git clone $replaced
+else
+    echo "I need something to work with, read the script header for instructions"
+    exit 1
+fi
